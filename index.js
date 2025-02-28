@@ -6,8 +6,8 @@
 //Menu Books
 
 //class Books
-    //make
-    //model
+    //title
+    //author
 class Book {
     constructor(title, author) {
         this.title = title;
@@ -30,7 +30,7 @@ addBook(){
 
     if(bookTitle && bookAuthor) { //Make sure inputs are not empty
         this.books.push(new Book(bookTitle, bookAuthor));
-        alert("Book added: ${bookTitle} by ${bookAuthor}");
+        alert("Book added: ${bookTitle} by ${bookAuthor}"); //Make sure it says who the book is writtn by.
     } else {
         alert("Invalid input. Book not added.");
     }
