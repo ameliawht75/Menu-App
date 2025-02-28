@@ -3,58 +3,58 @@
 //Use at least two classes.
 //Your menu should have the options to create, view, and delete elements.
 
-//Menu Cars
+//Menu Books
 
-//class Car
+//class Books
     //make
     //model
-class Car {
-    constructor(make, model) {
-        this.make = make;
-        this.model = model; 
+class Book {
+    constructor(title, author) {
+        this.title = title;
+        this.author = author; 
     }
 }
 
 //class Menu
 class Menu {
     constructor() {
-        this.cars = []; //Array to store car objects.
+        this.books = []; //Array to store book objects.
     }
 
 
 
-//add cars
-addCar(){
-    let carMake = prompt("Enter car make:");
-    let carModel =prompt("Enter car model:");
+//add a new book
+addBook(){
+    let bookTitle = prompt("Enter book title:");
+    let bookAuthor =prompt("Enter book author:");
 
-    if(carMake && carModel) { //Make sure inputs are not empty
-        this.cars.push(new Car(carMake, carModel));
-        alert("Car added: ${carMake} ${carModel}");
+    if(bookTitle && bookAuthor) { //Make sure inputs are not empty
+        this.books.push(new Book(bookTitle, bookAuthor));
+        alert("Book added: ${bookTitle} by ${bookAuthor}");
     } else {
-        alert("Invalid input. Please add car.");
+        alert("Invalid input. Book not added.");
     }
 }
 
 
-//delete cars
-deleteCar(){
-    let carIndex = prompt("Enter car index to DELETE:");
-    this.cars.splice(carIndex, 1);
+//delete book using index
+deleteBook(){
+    let bookIndex = prompt("Enter book index to DELETE:");
+    this.books.splice(bookIndex, 1);
 }
-//view cars
-viewCars() {
-    if (this.cars.length === 0) {
-        alert("No cars in inventory.");
+//view books
+viewBooks() {
+    if (this.books.length === 0) {
+        alert("No books in library.");
         return;
     }
 
-    let displayCars = ""; // Initialize empty string
-    for (let i = 0; i < this.cars.length; i++) {
-        displayCars += `${i}) ${this.cars[i].make} ${this.cars[i].model}\n`;
+    let displayBooks = ""; // Initialize empty string
+    for (let i = 0; i < this.books.length; i++) {
+        displayBooks += `${i}) ${this.books[i].title} by ${this.books[i].author}\n`;
     }
 
-    alert(`Car Inventory:\n\n${displayCars}`);
+    alert(`Book Library:\n\n${displayBooks}`);
 }
 //see a menu
 showMainMenu() {
@@ -62,9 +62,9 @@ showMainMenu() {
     Main Menu:
     ------------------------------------
     0) Exit Menu
-    1) Add Car
-    2) Delete Car
-    3) View All Cars
+    1) Add Book
+    2) Delete Books
+    3) View All Books
     `);
 }
 //start the memu
@@ -75,13 +75,13 @@ showMainMenu() {
 
             switch(selection) {
             
-                case "1": this.addCar();
+                case "1": this.addBook();
                 break;
 
-                case "2": this.deleteCar();
+                case "2": this.deleteBook();
                 break;
 
-                case "3": this.viewCars();
+                case "3": this.viewBooks();
                 break;
 
                 default: selection = 0;
